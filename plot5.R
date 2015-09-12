@@ -5,7 +5,7 @@ if (!file.exists('summarySCC_PM25.rds')) source("get_data.R")
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
-# Get all coal combustion related SCC codes
+# Get all motor vehicle combustion related SCC codes
 # assumption: strings `Vehicle`  will appear in SCC.Level.Two
 vehicle_entries <- SCC[grep("Vehicle", SCC$SCC.Level.Two), ]
 vehicle_codes <- unique(vehicle_entries$SCC)
