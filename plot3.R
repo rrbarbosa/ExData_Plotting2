@@ -14,6 +14,7 @@ agg <- setNames(agg, c("Year", "type", "Emissions"))
 #plot emissions and fit linear regression
 require('ggplot2')
 # using colors
+png("plot3-colors.png")
 plt <- qplot(Year, Emissions, data=agg, 
 	  color=type,
 	  main="Total Emissions in Baltimore per type",
@@ -22,9 +23,11 @@ plt <- qplot(Year, Emissions, data=agg,
 	  geom=c("point", "smooth"),
 	  method="lm",
 	  se=FALSE)
-ggsave(filename="plot3-colors.png", plot=plt)
+print(plt)
+dev.off()
 
 # using facets
+png("plot3.png", height=400, width=900)
 plt <- qplot(Year, Emissions, data=agg, 
 	  facets=.~type,
 	  main="Total Emissions in Baltimore per type",
@@ -33,4 +36,5 @@ plt <- qplot(Year, Emissions, data=agg,
 	  geom=c("point", "smooth"),
 	  method="lm",
 	  se=FALSE)
-ggsave(filename="plot3.png", plot=plt, height=3, width=6)
+print(plt)
+dev.off()
