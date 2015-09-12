@@ -46,7 +46,7 @@ dev.off()
 png("plot6.png", height=400, width=900)
 plt <- qplot(Year, Emissions, data=agg, 
 	  facets=.~city,
-	  main="Total Emissions in Baltimore per type",
+	  main="Total Motor Vehicle Emissions per City",
 	  xlab="Year",
 	  ylab=expression(paste("Emissions", PM[2.5])),
 	  geom=c("point", "smooth"),
